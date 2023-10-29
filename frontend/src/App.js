@@ -15,15 +15,16 @@ function App() {
   
   const customWallet = useRef(null)
   const NftTransaction = useRef(null)
+  const DaoAnalytics = useRef(null)
 
   return (
     
        <div className="bg-blue-100 min-h-screen m-0 p-0"> {/* Ensure no padding at the top */}
     <div className="mt-5 p-0 min-h-screen"> {/* Ensure no margin at the top */}
     <WalletContext.Provider value={{ walletAddress, setWalletAddress }}>
-      <NavbarComponent refs = {{tokenMetadata, customWallet , NftTransaction}}/>
+      <NavbarComponent refs = {{tokenMetadata, customWallet , NftTransaction , DaoAnalytics}}/>
       
-      <TransactionChart />
+      <div ref = {DaoAnalytics}><TransactionChart/></div>
       
       <div ref = {customWallet}> <SpecificWalletTransactionChart/></div>
       <div ref = {NftTransaction}><NftTransfers/></div>
